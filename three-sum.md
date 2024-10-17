@@ -2,6 +2,12 @@
 
 ## Consideration
 
+| Intent                                          | Solution                                                                           | Note |
+| ----------------------------------------------- | ---------------------------------------------------------------------------------- | ---- |
+| Naive Solution with High Time Complexity O(n^3) | Three for loop                                                                     | -    |
+| Reduce Nested Loop to get O(n^2)                | Using sort and left/right Pointer                                                  |      |
+| Get Unique Value Only                           | Use set to hash string of array, toward the end, convert that back to array output |      |
+
 * **Sort the Array**: First, sort the array to make it easier to skip duplicates.
 * **Iterate Over the Array**: Use one loop to select the current number, then use two additional pointers to find two other numbers that make the sum zero.
 * **Use Two Pointers** for the Other Two Numbers: For each element in the array, use a left pointer starting just after the current element  and a right pointer at the end of the array. Adjust these pointers to find two numbers whose sum is the negative of the current number.

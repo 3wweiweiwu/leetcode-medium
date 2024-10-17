@@ -1,3 +1,21 @@
+# Set Matrix Zero
+
+## Intent of the Problem
+
+* Minimize Memory Space Usage use space (O(1))
+
+## Consideration
+
+| Goal                                                                           | Solution                                                                                                                                                      |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Minimize Memory Space Usage to O(m+n)                                          | Use additional array to 0 state for row and column information                                                                                                |
+| Minimize Memory Space Usage to O(1)                                            | Use Row and Column Header as marker to mark 0 state for entire row/column                                                                                     |
+| Perserve Header Value when it is used as marker                                | We don't care all header value, we only care if top row or column contains 0 at beginning, then mark all cells top row/header 0 at the end even include (0,0) |
+| Handle Special Case with (0,0) cause it will have impact on top row and column | We get this value at the beginning, and then mark top row and column toward the endinformatoin                                                                |
+
+## Code
+
+```js
 var printMatrix = function (matrix) {
     //print output
     for (let i = 0; i < matrix.length; i++) {
@@ -118,3 +136,4 @@ var setZeroes = function (matrix) {
 
 
 setZeroes([[1], [0], [3]])
+```
