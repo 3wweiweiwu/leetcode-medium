@@ -1,3 +1,20 @@
+# Add Two Number
+
+## Link
+
+<https://leetcode.com/explore/interview/card/top-interview-questions-medium/107/linked-list/783/>
+
+## Key Consideration
+
+| Challenge                                                       | Solution                                                         |
+| --------------------------------------------------------------- | ---------------------------------------------------------------- |
+| How to return beginning node when working with 1 direction link | Create a header as dummy, append actual node to its next         |
+| How to tell when is end of list?                                | If node is null, it's end list. Otherwise, just node = node.next |
+| Remember to take carry over into consideration                  |                                                                  |
+
+## Code
+
+```js
 function ListNode(val, next) {
     this.val = (val === undefined ? 0 : val);
     this.next = (next === undefined ? null : next);
@@ -37,3 +54,5 @@ var addTwoNumbers = function (l1, l2) {
 l1 = { val: 0, next: { val: 8 } }, l2 = { val: 0, next: { val: 2 } }
 result = addTwoNumbers(l1, l2)
 console.log(result)
+
+```
