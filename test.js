@@ -1,39 +1,35 @@
+
+
 function ListNode(val, next) {
-    this.val = (val === undefined ? 0 : val);
-    this.next = (next === undefined ? null : next);
+    this.val = (val === undefined ? 0 : val)
+    this.next = (next === undefined ? null : next)
 }
 /**
- * 
- * @param {ListNode} l1 
- * @param {ListNode} l2 
+ * @param {ListNode} headA
+ * @param {ListNode} headB
+ * @return {ListNode}
  */
-var addTwoNumbers = function (l1, l2) {
-    let head = new ListNode(0)
-    let node = head
-    let carry = 0
-    while (l1 != null || l2 != null || carry > 0) {
-        let l1Val = l1 ? l1.val : 0
-        let l2Val = l2 ? l2.val : 0
+var getIntersectionNode = function (headA, headB) {
+    let ptA = headA
+    let ptB = headB
+    let aLength = 0
+    let bLength = 0
+    let aFinal = false
+    let bFinal = false
+    let i = 0
+    while (ptA !== ptB) {
+        ptA = ptA.next !== null ? ptA.next : headB
+        ptB = ptB.next !== null ? ptB.next : headA
+        i++
 
-        let currentSum = l1Val + l2Val + carry
-        carry = 0
-        if (currentSum >= 10) {
-            currentSum -= 10
-            carry = 1
-        }
-
-        //handle node value change
-        let currentNode = new ListNode(currentSum)
-        node.next = currentNode
-        node = node.next
-
-        //handle l1 and l2
-        l1 = l1 ? l1.next : null
-        l2 = l2 ? l2.next : null
     }
-    return head.next
-}
+    return ptA
 
-l1 = { val: 0, next: { val: 8 } }, l2 = { val: 0, next: { val: 2 } }
-result = addTwoNumbers(l1, l2)
-console.log(result)
+};
+
+// [4,1,8,4,5]
+// [5,6,1,8,4,5]
+let intersection = { val: 8, next: { val: 4, next: { val: 5, next: null } } }
+let a = { val: 4, next: { val: 1, next: intersection } }
+let b = { val: 5, next: { val: 6, next: { val: 1, next: intersection } } }
+getIntersectionNode(a, b)
